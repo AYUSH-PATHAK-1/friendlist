@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import './App.css'
+import Friends from './Friends';
+
+const Data=[{
+  id:1,
+  name:"Ayush"
+},{
+  id:2,
+  name:"Praesh"
+},{
+  id:3,
+  name:"Nikhil"
+},{
+  id:4,
+  name:"Malav"
+},{
+  id:5,
+  name:"Yash"
+},{
+  id:5,
+  name:"Nikhil"
+}]
 
 function App() {
+  const[friend,setFriend]=useState(Data);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        <>
+        <div className="app">
+        <h2>Number Of Friends : {friend.length}</h2>
+        <Friends friends={friend}/>
+        <button onClick={()=>setFriend([])}>Clear All</button>
+        <button onClick={()=>setFriend(Data)}>Get All</button>
+        </div>
+        </>
+  )
 }
 
-export default App;
+export default App
